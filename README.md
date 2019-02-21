@@ -15,14 +15,14 @@ The order of instructions and description is as follows:
 000000_00000_10010_10000_00100_000000   //sll s2 s0     3<<4   s0=48
 011100_10001_10010_00000_00000_000000   //madd s1 s2    aluout0=24,out1=0,Hi=0,Lo=24. MaluOut=Hilo-Alu=48
 011100_10001_10010_00000_00000_000100   //msub s1 s2    aluout0=24,out1=0,Hi=0,Lo=48. MaluOut=24
-000000_00000_00000_10010_00000_010000   //exchanging values in hi and lo using rt and rs respectively //mfhi move from hi to rd 																				which is s2/rt=0
+000000_00000_00000_10010_00000_010000   //exchanging values in hi and lo using rt and rs respectively //mfhi move from hi to rd which is s2/rt=0
 000000_00000_00000_10001_00000_010010   //mflo move from lo to rd which is s1/rs=24
 000000_10001_00000_00000_00000_010001   //mthi move from rs to Hi which is s1=24
 000000_10010_00000_10000_00000_010011   //mtlo move from rs to Lo which is s2=0
 001000_10001_10010_0000000000100000     //addi rt=rs+imme rs=24,imme=32,rt=56
 001101_10001_10010_0001001000100011     //ori  rt=rs|imme rs=24,imme=4643,rt=4667
 001111_00000_10010_0000000100000000     //lui rt=upper_imme upper_imme=256, rt=16,777,216
-101011_10111_10010_0000000000000011     //to test beq we need rs==rt. we store value of rt in datamem using sw and retrieve using 																				lw to rs //sw store rd which is s2 in localtion rs+3 s2=16777216 
+101011_10111_10010_0000000000000011     //to test beq we need rs==rt. we store value of rt in datamem using sw and retrieve using lw to rs //sw store rd which is s2 in localtion rs+3 s2=16777216 
 100011_10111_10001_0000000000000011     //lw load value from location rs+3 in s1=16777216
 000100_10001_10010_0000000000000010     //beq rs==rt. it will jump 2 instrutions infront
 000000_10001_10010_10000_00000_100000 	//2 dummy add instrutions which will be skipped by beq above
